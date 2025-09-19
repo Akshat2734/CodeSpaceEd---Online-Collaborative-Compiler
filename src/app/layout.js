@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-scroll`}
       >
         <ThemeContextProvider>
           <NavBar />
