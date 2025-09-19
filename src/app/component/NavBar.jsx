@@ -1,8 +1,9 @@
 "use client"
-import React from "react"
+import React, { useState } from "react"
 import { GoFileMedia } from "react-icons/go";
 import { Bitcount_Grid_Double } from "next/font/google";
 import { useThemeContext } from "../contexts/theme-context";
+import NavLink from "./NavLink";
 
 const bitcount = Bitcount_Grid_Double({
   subsets: ["latin"],
@@ -16,7 +17,7 @@ export function NavBar(){
         setTheme(theme === 'dark' ? 'cupcake' : 'dark');
     };
     return(
-        <div className={`flex items-center sm:h-16 h-12 border-1 border-b-gray-600 border-t-transparent border-l-transparent border-r-transparent overflow-hidden justify-between ${theme === "dark" ? "bg-black" : "bg-gray-500"}`}>
+        <div className={`flex items-center sm:h-16 h-12 border-2 border-b-gray-600 border-t-transparent border-l-transparent border-r-transparent overflow-hidden justify-around ${theme === "dark" ? "bg-black" : "bg-gray-500"}`}>
             {/*Have the logo and the name of the website*/}
             <div className="flex pl-5 items-center">
                 <GoFileMedia className="w-10 h-10" />
@@ -24,9 +25,18 @@ export function NavBar(){
             </div>
             {/*Have the main buttons need to add links and beutify it*/}
             <div className="tabs tabs-box">
-                <input type="radio" name="my_tabs_1" className="tab w-25" aria-label="Pricing" />
-                <input type="radio" name="my_tabs_1" className="tab w-25" aria-label="Community" defaultChecked />
-                <input type="radio" name="my_tabs_1" className="tab w-25" aria-label="Compiler" />
+                <NavLink href="/" prefetch={true}>
+                    <input type="radio" name="my_tabs_1" className={`tab w-25 `} aria-label="Home"/>
+                </NavLink>
+                <NavLink href="/pricingpage" prefetch={false}>
+                    <input type="radio" name="my_tabs_1" className="tab w-25" aria-label="Pricing" />
+                </NavLink>
+                <NavLink href="/communitypage" prefetch={false}>
+                    <input type="radio" name="my_tabs_1" className="tab w-25" aria-label="Community" />
+                </NavLink>
+                <NavLink href="/compilerpage" prefetch={false}>
+                    <input type="radio" name="my_tabs_1" className="tab w-25" aria-label="Compiler" />
+                </NavLink>
             </div>
             {/*have the login button and Dark and White Mode*/}
             <div className="flex pr-5">
