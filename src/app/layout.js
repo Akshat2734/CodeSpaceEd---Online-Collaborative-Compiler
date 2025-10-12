@@ -1,7 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { NavBar } from "./component/NavBar";
-import ThemeContextProvider from './contexts/theme-context';
+import { NavBar } from "../components/NavBar";
+import ThemeContextProvider from '../contexts/theme-context';
+import { ClerkProvider } from "@clerk/nextjs";
+import { ConvexClientProvider } from "../components/providers/ConvexClientProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,8 +32,12 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-scroll`}
       >
         <ThemeContextProvider>
-          <NavBar />
-          {children}
+          <ClerkProvider>
+            <ConvexClientProvider>
+              <NavBar />
+              {children}
+            </ConvexClientProvider>
+          </ClerkProvider>
         </ThemeContextProvider>
       </body>
     </html>

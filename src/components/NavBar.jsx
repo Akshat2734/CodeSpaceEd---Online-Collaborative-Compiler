@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react"
+import React from "react"
 import { GoFileMedia } from "react-icons/go";
 import { Bitcount_Grid_Double } from "next/font/google";
 import { useThemeContext } from "../contexts/theme-context";
