@@ -2,7 +2,7 @@
 
 import { Tagesschrift } from "next/font/google";
 import { motion } from "motion/react"
-import { useThemeContext } from "./contexts/theme-context";
+import { useThemeContext } from "../../contexts/theme-context";
 import { useState } from "react";
 
 

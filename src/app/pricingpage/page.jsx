@@ -1,4 +1,22 @@
+import { currentUser } from "@clerk/nextjs/server";
+import { ConvexHttpClient } from "convex/browser";
+import { api } from "../../../convex/_generated/api";
+import ProPlanView from "./_components/ProPlanView";
+
+import { SignedIn, SignedOut } from "@clerk/nextjs";
+import UpgradeButton from "./_components/UpgradeButton";
+import LoginButton from "import/components/LoginButton";
+
+
 export default function pricingpage(){     
+    const user = currentUser();
+    const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL || "");
+    const convexUser = convex.query(api.users.getUser, {
+        userId: user?.id || "",
+    });
+
+    if (convexUser?.isPro) return <ProPlanView />;
+    
     return(
         <div className="flex justify-evenly mt-25">
             {/* First Card */}
@@ -114,7 +132,14 @@ export default function pricingpage(){
                     </li>
                 </ul>
                 <div className="mt-6">
-                    <button className="btn btn-primary btn-block">Subscribe</button>
+                    <button className="btn btn-primary btn-block">
+                        <SignedIn>
+                            <UpgradeButton />
+                        </SignedIn>
+                        <SignedOut>
+                            <LoginButton />
+                        </SignedOut>
+                    </button>
                 </div>
                 </div>
             </div>
@@ -232,7 +257,14 @@ export default function pricingpage(){
                     </li>
                 </ul>
                 <div className="mt-6">
-                    <button className="btn btn-primary btn-block">Subscribe</button>
+                    <button className="btn btn-primary btn-block">
+                        <SignedIn>
+                            <UpgradeButton />
+                        </SignedIn>
+                        <SignedOut>
+                            <LoginButton />
+                        </SignedOut>
+                    </button>
                 </div>
                 </div>
             </div>
@@ -350,7 +382,14 @@ export default function pricingpage(){
                     </li>
                 </ul>
                 <div className="mt-6">
-                    <button className="btn btn-primary btn-block">Subscribe</button>
+                    <button className="btn btn-primary btn-block">
+                        <SignedIn>
+                            <UpgradeButton />
+                        </SignedIn>
+                        <SignedOut>
+                            <LoginButton />
+                        </SignedOut>
+                    </button>
                 </div>
                 </div>
             </div>
