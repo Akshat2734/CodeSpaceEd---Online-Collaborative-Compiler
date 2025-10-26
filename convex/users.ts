@@ -24,6 +24,7 @@ export const syncUser = mutation({
   },
 });
 
+
 export const getUser = query({
   args: { userId: v.string() },
 

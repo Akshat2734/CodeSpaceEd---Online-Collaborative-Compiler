@@ -1,10 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { NavBar } from "../components/NavBar";
-import ThemeContextProvider from '../contexts/theme-context';
+import DeviceGuard from "import/components/DeviceGuard";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ConvexClientProvider } from "../components/providers/ConvexClientProvider";
 import NavigationHeader from "import/components/NavigationHeader";
+import NavigationHeaderWrapper from "import/components/NavigationHeaderWrapper";
+import RegisterUserClient from "import/components/RegisterUserClient";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,12 +28,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#1e1e1e] text-[#f5f5f5] overflow-y-scroll`}
       >
-        <ClerkProvider>
-          <ConvexClientProvider>
-            <NavigationHeader />
-            {children}
-          </ConvexClientProvider>
-        </ClerkProvider>
+        <DeviceGuard>
+            <ConvexClientProvider>
+              <RegisterUserClient />
+              <NavigationHeaderWrapper />
+              {children}
+            </ConvexClientProvider>
+        </DeviceGuard>
       </body>
     </html>
   );

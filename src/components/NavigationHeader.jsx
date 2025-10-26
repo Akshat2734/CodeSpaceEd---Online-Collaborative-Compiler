@@ -6,7 +6,9 @@ import Link from "next/link";
 import HeaderProfileBtn from "import/app/compilerpage/_components/HeaderProfileBtn";
 import NavLink from "./NavLink";
 
+
 function NavigationHeader({ convexUser }) {
+  
   return (
     <div className="sticky top-0 z-50 w-full border-b border-gray-800/50 bg-gray-950/80 backdrop-blur-xl backdrop-saturate-150">
       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5" />
