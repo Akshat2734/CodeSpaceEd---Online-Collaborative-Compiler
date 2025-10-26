@@ -1,11 +1,10 @@
 import { currentUser } from "@clerk/nextjs/server";
 import { ConvexHttpClient } from "convex/browser";
 import { api } from "../../../convex/_generated/api";
-import ProPlanView from "./_components/ProPlanView";
 
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import UpgradeButton from "./_components/UpgradeButton";
 import LoginButton from "import/components/LoginButton";
+import UpgradeButton from "./_components/UpgradeButton";
 
 
 export default function pricingpage(){     
@@ -18,14 +17,14 @@ export default function pricingpage(){
     if (convexUser?.isPro) return <ProPlanView />;
     
     return(
-        <div className="flex justify-evenly mt-25">
+        <div className="flex justify-evenly mt-24">
             {/* First Card */}
             <div className="card w-96 h-120 bg-black shadow-sm rounded-4xl">
                 <div className="card-body">
                 <span className="badge badge-xs badge-warning">Most Popular</span>
-                <div className="flex justify-between">
+                <div className="flex justify-between items-center">
                     <h2 className="text-3xl font-bold">Premium</h2>
-                    <span className="text-xl">$29/mo</span>
+                    <span className="text-xl">Rs.999/Year</span>
                 </div>
                 <ul className="mt-6 flex flex-col gap-2 text-xs">
                     <li>
@@ -43,7 +42,7 @@ export default function pricingpage(){
                         d="M5 13l4 4L19 7"
                         />
                     </svg>
-                    <span>High-resolution image generation</span>
+                    <span>Global Infrastructure</span>
                     </li>
                     <li>
                     <svg
@@ -60,7 +59,7 @@ export default function pricingpage(){
                         d="M5 13l4 4L19 7"
                         />
                     </svg>
-                    <span>Customizable style templates</span>
+                    <span>Multi-language support</span>
                     </li>
                     <li>
                     <svg
@@ -94,7 +93,7 @@ export default function pricingpage(){
                         d="M5 13l4 4L19 7"
                         />
                     </svg>
-                    <span>AI-driven image enhancements</span>
+                    <span>Version control integration</span>
                     </li>
                     <li className="opacity-50">
                     <svg
@@ -131,15 +130,15 @@ export default function pricingpage(){
                     <span className="line-through">Real-time collaboration tools</span>
                     </li>
                 </ul>
-                <div className="mt-6">
-                    <button className="btn btn-primary btn-block">
+                <div className="mt-6 flex justify-center">
+                    
                         <SignedIn>
                             <UpgradeButton />
                         </SignedIn>
                         <SignedOut>
                             <LoginButton />
                         </SignedOut>
-                    </button>
+                    
                 </div>
                 </div>
             </div>
@@ -147,10 +146,10 @@ export default function pricingpage(){
             {/* Second Card */}
             <div className="card w-96 bg-black rounded-4xl shadow-sm">
                 <div className="card-body">
-                <span className="badge badge-xs badge-warning">Most Popular</span>
-                <div className="flex justify-between">
+                    <span className="badge badge-xs badge-warning">Popular</span>
+                <div className="flex justify-between items-center">
                     <h2 className="text-3xl font-bold">Premium</h2>
-                    <span className="text-xl">$29/mo</span>
+                    <span className="text-xl">Rs.99/mo</span>
                 </div>
                 <ul className="mt-6 flex flex-col gap-2 text-xs">
                     <li>
@@ -256,15 +255,15 @@ export default function pricingpage(){
                     <span className="line-through">Real-time collaboration tools</span>
                     </li>
                 </ul>
-                <div className="mt-6">
-                    <button className="btn btn-primary btn-block">
+                <div className="mt-6 flex justify-center">
+                    
                         <SignedIn>
                             <UpgradeButton />
                         </SignedIn>
                         <SignedOut>
                             <LoginButton />
                         </SignedOut>
-                    </button>
+                    
                 </div>
                 </div>
             </div>
@@ -273,9 +272,9 @@ export default function pricingpage(){
             <div className="card w-96 bg-black rounded-4xl shadow-sm">
                 <div className="card-body">
                 <span className="badge badge-xs badge-warning">Most Popular</span>
-                <div className="flex justify-between">
+                <div className="flex justify-between items-center">
                     <h2 className="text-3xl font-bold">Premium</h2>
-                    <span className="text-xl">$29/mo</span>
+                    <span className="">Pay As Per Need</span>
                 </div>
                 <ul className="mt-6 flex flex-col gap-2 text-xs">
                     <li>
@@ -381,15 +380,14 @@ export default function pricingpage(){
                     <span className="line-through">Real-time collaboration tools</span>
                     </li>
                 </ul>
-                <div className="mt-6">
-                    <button className="btn btn-primary btn-block">
+                <div className="mt-6 flex justify-center">
+                    
                         <SignedIn>
                             <UpgradeButton />
                         </SignedIn>
                         <SignedOut>
                             <LoginButton />
                         </SignedOut>
-                    </button>
                 </div>
                 </div>
             </div>

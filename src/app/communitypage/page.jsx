@@ -20,7 +20,6 @@ function SnippetsPage() {
   if (snippets === undefined) {
     return (
       <div className="min-h-screen">
-        <NavigationHeader />
         <SnippetsPageSkeleton />
       </div>
     );
@@ -42,7 +41,6 @@ function SnippetsPage() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
-      <NavigationHeader />
 
       <div className="relative max-w-7xl mx-auto px-4 py-12">
         {/* Hero */}

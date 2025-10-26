@@ -14,43 +14,42 @@ const tagesschrift = Tagesschrift({
 
 export default function HomePage() {
   const items = [
-  { icon: "📜", text: "JavaScript" },
-  { icon: "🔷", text: "TypeScript" },
-  { icon: "🐍", text: "Python" },
-  { icon: "☕", text: "Java" },
-  { icon: "🐹", text: "Go" },
-  { icon: "🦀", text: "Rust" },
+  { icon: "/javascript.png", text: "JavaScript" },
+  { icon: "/typescript.png", text: "TypeScript" },
+  { icon: "/python.png", text: "Python" },
+  { icon: "/java.png", text: "Java" },
+  { icon: "/go.png", text: "Go" },
+  { icon: "/rust.png", text: "Rust" },
   ]
 
   const items2 =[
-  { icon: "💠", text: "C++" },
-  { icon: "🎯", text: "C#" },
-  { icon: "💎", text: "Ruby" },
-  { icon: "🍎", text: "Swift" },
-  { icon: "🌐", text: "HTML" },
-  { icon: "🎨", text: "CSS" },
+  { icon: "/cpp.png", text: "C++" },
+  { icon: "/csharp.png", text: "C#" },
+  { icon: "/ruby.png", text: "Ruby" },
+  { icon: "/swift.png", text: "Swift" },
+  { icon: "/html.png", text: "HTML" },
+  { icon: "/css.png", text: "CSS" },
 ]
 
-const { theme } = useThemeContext()
 
 const data = [
     {
-      img: "https://img.daisyui.com/images/stock/daisyui-hat-1.webp",
+      img: "https://react.dev/",
       title: "Classic Hat",
       desc: "A timeless hat for everyday wear.",
     },
     {
-      img: "https://img.daisyui.com/images/stock/daisyui-hat-2.webp",
+      img: "https://dashboard-embedded.convex.dev",
       title: "Modern Hat",
       desc: "Stylish design with premium fabric.",
     },
     {
-      img: "https://img.daisyui.com/images/stock/daisyui-hat-3.webp",
+      img: "https://app.clerk.chat?k=your-jwt-token",
       title: "Sporty Hat",
       desc: "Lightweight and perfect for outdoor activity.",
     },
     {
-      img: "https://img.daisyui.com/images/stock/daisyui-hat-4.webp",
+      img: "https://app.lemonsqueezy.com/",
       title: "Elegant Hat",
       desc: "Refined style for special occasions.",
     },
@@ -61,7 +60,7 @@ const [active, setActive] = useState(0);
 return (
     <>
     <div>
-        <h1 className={`flex text-[48px] justify-center ${tagesschrift.className} pt-20`}>Collaborating together with CodeSpaceEd</h1>
+        <h1 className={`flex text-[48px] text-gray-300 justify-center ${tagesschrift.className} pt-30`}>Collaborating together with CodeSpaceEd</h1>
         <div className={`w-screen max-w-[1100px] overflow-hidden mt-10 mx-auto border-2 border-[#222] rounded-xl`}>
             <motion.div
                 className="flex w-max"
@@ -75,9 +74,13 @@ return (
                 {[...items, ...items, ...items].map((item, i) => (
                     <div
                         key={i}
-                        className="w-40 h-10 mr-5 rounded-xl flex items-center justify-center bg-[#f5f5f5] text-[1.2rem] font-medium"
+                        className="w-40 h-10 mr-5 rounded-xl flex items-center justify-center bg-gray-500 text-[1.2rem] font-medium"
                     >
-                        <span className="text-[25px]">{item.icon}</span>
+                        {item.icon.endsWith(".png") ? (
+                            <img src={item.icon} alt={item.text} className="w-6 h-6" />
+                            ) : (
+                            <span className="text-3xl mb-2">{item.icon}</span>
+                        )}
                         <span className="text-base text-black">{item.text}</span>
                     </div>
                 ))}
@@ -96,20 +99,24 @@ return (
                 {[...items2, ...items2, ...items2].map((item, i) => (
                     <div
                         key={i}
-                        className="w-40 h-10 mr-5 rounded-xl flex items-center justify-center bg-[#f5f5f5] text-[1.2rem] font-medium"
+                        className="w-40 h-10 mr-5 rounded-xl flex items-center justify-center bg-gray-500 text-[1.2rem] font-medium"
                     >
-                        <span className="text-[25px]">{item.icon}</span>
+                        {item.icon.endsWith(".png") ? (
+                            <img src={item.icon} alt={item.text} className="w-6 h-6" />
+                            ) : (
+                            <span className="text-3xl mb-2">{item.icon}</span>
+                        )}
                         <span className="text-base text-black">{item.text}</span>
                     </div>
                 ))}
             </motion.div>
         </div>
-        <div className={`w-6xl shadow place-self-center rounded-xl mt-27 flex ${theme === "dark" ? "bg-black" : "bg-gray-500"}`}>
+        <div className={`w-6xl shadow place-self-center rounded-xl mt-27 flex bg-black`}>
             <figure>
-                <img
+                <iframe
                     src={data[active].img}
                     alt={data[active].title}
-                    className="max-h-[500px] object-contain rounded-xl w-2xl bg-gray-600"
+                    className="min-h-[500px] object-contain rounded-xl w-2xl bg-gray-600"
                 />
             </figure>
             <div className="card-body">
@@ -117,7 +124,7 @@ return (
                 <p>{data[active].desc}</p>
             </div>
         </div>
-        <div className="w-full flex justify-center mt-15">
+        <div className="w-full flex justify-center mt-15 ">
             <ul className="steps w-170">
                 {data.map((item, i) => (
                 <li
@@ -125,7 +132,7 @@ return (
                     onClick={() => setActive(i)}
                     className={`
                         step cursor-pointer relative h-17 mt-5
-                        after:!w-17 after:!h-17 after:text-2xl 
+                        after:!w-17 after:!h-17 after:text-2xl
                         ${i <= active ? "step-success" : ""} 
                         
                     `}

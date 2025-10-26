@@ -4,6 +4,7 @@ import { NavBar } from "../components/NavBar";
 import ThemeContextProvider from '../contexts/theme-context';
 import { ClerkProvider } from "@clerk/nextjs";
 import { ConvexClientProvider } from "../components/providers/ConvexClientProvider";
+import NavigationHeader from "import/components/NavigationHeader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,23 +23,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-        <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-      </head>
+    <html lang="en" data-theme="darkgray" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-scroll`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#1e1e1e] text-[#f5f5f5] overflow-y-scroll`}
       >
-        <ThemeContextProvider>
-          <ClerkProvider>
-            <ConvexClientProvider>
-              <NavBar />
-              {children}
-            </ConvexClientProvider>
-          </ClerkProvider>
-        </ThemeContextProvider>
+        <ClerkProvider>
+          <ConvexClientProvider>
+            <NavigationHeader />
+            {children}
+          </ConvexClientProvider>
+        </ClerkProvider>
       </body>
     </html>
   );
