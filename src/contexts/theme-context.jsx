@@ -16,7 +16,7 @@ export default function ThemeContextProvider({ children }) {
       if (savedTheme) {
         setTheme(savedTheme); // restore saved theme
       } else {
-        setTheme('cupcake'); // default theme if none is saved
+        setTheme('dark'); // default theme if none is saved
       }
     } else {
       // ✅ Save theme to localStorage & update <html> tag
