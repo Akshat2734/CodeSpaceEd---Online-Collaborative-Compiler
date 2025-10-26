@@ -1,5 +1,4 @@
 import { SignInButton, useUser } from "@clerk/nextjs";
-import { Id } from "../../../../../convex/_generated/dataModel";
 import { useState } from "react";
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../../../../../convex/_generated/api";

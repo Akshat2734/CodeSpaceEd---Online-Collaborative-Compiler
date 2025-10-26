@@ -4,14 +4,13 @@ import { usePaginatedQuery, useQuery } from "convex/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { api } from "../../../convex/_generated/api";
-import NavigationHeader from "import/components/NavigationHeader";
 import ProfileHeader from "./_components/ProfileHeader";
 import ProfileHeaderSkeleton from "./_components/ProfileHeaderSkeleton";
 import { ChevronRight, Clock, Code, ListVideo, Loader2, Star } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import StarButton from "@/components/StarButton";
+import StarButton from "import/components/StarButton";
 import CodeBlock from "./_components/CodeBlock";
 
 const TABS = [
@@ -61,7 +60,6 @@ function ProfilePage() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
-      <NavigationHeader />
 
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Profile Header */}
