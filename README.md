@@ -221,78 +221,44 @@ Convex-->>Frontend: User is Pro
 
 ```mermaid
 flowchart TD
+    A([User])
+    B[Clerk Login]
+    C[JWT Token]
+    D[Next.js]
+    E[Convex]
+    F[Authenticated User]
+    G[Application]
 
-User
-
--->
-
-Clerk Login
-
--->
-
-JWT Token
-
--->
-
-Next.js
-
--->
-
-Convex
-
--->
-
-Authenticated User
-
--->
-
-Application
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
 ```
-
 ---
 
 # 🌍 Infrastructure
 
 ```mermaid
 graph TD
+    A([Browser])
+    B[Vercel]
+    C[Next.js App]
+    D[(Convex)]
+    E[Piston API]
+    F[Clerk]
+    G[Lemon Squeezy]
+    H[Convex Webhook]
 
-Browser
-
--->
-
-Vercel
-
--->
-
-Next.js
-
--->
-
-Convex
-
-Next.js
-
--->
-
-Piston API
-
-Next.js
-
--->
-
-Clerk
-
-Next.js
-
--->
-
-Lemon Squeezy
-
-Lemon Squeezy
-
--->
-
-Convex Webhook
+    A --> B
+    B --> C
+    C --> D
+    C --> E
+    C --> F
+    C --> G
+    G --> H
+    H --> D
 ```
 
 ---
